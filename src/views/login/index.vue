@@ -153,7 +153,7 @@ export default {
       })
     },
     handleLogin() {
-      this.$refs.loginForm.validate(valid => {
+      this.$refs.loginForm.validate(valid => {//Call loginForm's validate function with a callback. This call back has a param valid
         if (valid) {
           this.loading = true
           this.$store.dispatch('user/login', this.loginForm)
@@ -161,7 +161,7 @@ export default {
               this.$router.push({ path: this.redirect || '/', query: this.otherQuery })
               this.loading = false
             })
-            .catch(() => {
+            .catch(error => {
               this.loading = false
             })
         } else {

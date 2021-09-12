@@ -2,7 +2,7 @@ import request from '@/utils/request'
 
 export function login(data) {
   return request({
-    url: '/vue-element-admin/user/login',
+    url: 'http://115.159.53.168:8080/api/auth/login',
     method: 'post',
     data
   })

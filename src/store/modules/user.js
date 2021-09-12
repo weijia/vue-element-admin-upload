@@ -4,6 +4,7 @@ import router, { resetRouter } from '@/router'
 
 const state = {
   token: getToken(),
+  refresh_token: '',
   name: '',
   avatar: '',
   introduction: '',
@@ -13,6 +14,9 @@ const state = {
 const mutations = {
   SET_TOKEN: (state, token) => {
     state.token = token
+  },
+  SET_REFRESH_TOKEN: (state, refresh_token) => {
+    state.refresh_token = refresh_token
   },
   SET_INTRODUCTION: (state, introduction) => {
     state.introduction = introduction
@@ -36,6 +40,7 @@ const actions = {
       login({ username: username.trim(), password: password }).then(response => {
         const { data } = response
         commit('SET_TOKEN', data.token)
+        commit('SET_REFRESH_TOKEN', data.refreshToken)
         setToken(data.token)
         resolve()
       }).catch(error => {
