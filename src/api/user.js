@@ -10,9 +10,9 @@ export function login(data) {
 
 export function getInfo(token) {
   return request({
-    url: '/vue-element-admin/user/info',
+    url: 'http://115.159.53.168:8080/api/auth/user',
     method: 'get',
-    params: { token }
+    // params: { token }
   })
 }
 
